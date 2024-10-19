@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Summary</title>
+    <link rel="stylesheet" href="IBM-data.css">
+</head>
+<body background="C:\Users\amogh\Downloads\coding.jpg">
+    <div class="summary-container">
+        <h1>STUDENT SUMMARY</h1>
+
+        <div class="summary-section">
+            <h2>Basic Information</h2>
+            <p><strong>Hours Studied per Week:</strong> <span id="hours_studied"></span></p>
+            <p><strong>Attendance:</strong> <span id="attendance"></span></p>
+            <p><strong>Parental Involvement:</strong> <span id="parental_involvement"></span></p>
+            <p><strong>Access to Resources:</strong> <span id="access_resources"></span></p>
+            <p><strong>Extracurricular Activities:</strong> <span id="extracurricular"></span></p>
+        </div>
+
+        <div class="summary-section">
+            <h2>Performance & Motivation</h2>
+            <p><strong>Previous Scores:</strong> <span id="previous_scores"></span></p>
+            <p><strong>Motivation Level:</strong> <span id="motivation_level"></span></p>
+            <p><strong>Tutoring Sessions:</strong> <span id="tutoring_sessions"></span></p>
+        </div>
+
+        <div class="summary-section">
+            <h2>Other Details</h2>
+            <p><strong>Sleep Hours:</strong> <span id="sleep_hours"></span></p>
+            <p><strong>Internet Access:</strong> <span id="internet_access"></span></p>
+            <p><strong>Family Income:</strong> <span id="family_income"></span></p>
+            <p><strong>Teacher Quality:</strong> <span id="teacher_quality"></span></p>
+            <p><strong>Peer Influence:</strong> <span id="peer_influence"></span></p>
+            <p><strong>Physical Activity:</strong> <span id="physical_activity"></span></p>
+            <p><strong>Distance from Home:</strong> <span id="distance_from_home"></span></p>
+            <p><strong>Learning Disabilities:</strong> <span id="learning_disabilities"></span></p>
+            <p><strong>Final Exam Score:</strong> <span id="final_exam_score"></span></p>
+        </div>
+
+        <button type="button" onclick="goBack()">Go Back</button>
+    </div>
+
+    <script>
+        const results = JSON.parse(localStorage.getItem('results'));
+        document.getElementById('predicted_score').textContent = results.predicted_score;
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+    
+</body>
+</html>

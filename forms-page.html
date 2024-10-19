@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OH SKIBIDI RE Form</title>
+    <link rel="stylesheet" href="IBM-form.css">
+</head>
+<body background="C:\Users\amogh\Downloads\coding.jpg">
+    <form action="/submit" method="POST">
+        <h1>STUDENT PERFORMANCE ANALYSIS</h1>
+        
+        <label for="hours_studied">Number of hours spent studying per week:</label>
+        <input type="number" id="hours_studied" name="hours_studied" required>
+
+        <label for="attendance">Percentage of classes attended:</label>
+        <input type="number" id="attendance" name="attendance" required>
+
+        <label>Parental Involvement:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="parental_involvement" value="low" required> Low</label>
+            <label><input type="radio" name="parental_involvement" value="medium"> Medium</label>
+            <label><input type="radio" name="parental_involvement" value="high"> High</label>
+        </div>
+
+        <label>Access to resources:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="resources" value="low" required> Low</label>
+            <label><input type="radio" name="resources" value="medium"> Medium</label>
+            <label><input type="radio" name="resources" value="high"> High</label>
+        </div>
+
+        <label>Extracurricular activities:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="extracurricular" value="yes" required> Yes</label>
+            <label><input type="radio" name="extracurricular" value="no"> No</label>
+        </div>
+
+        <label for="sleep_hours">Average number of sleep hours per day:</label>
+        <input type="number" id="sleep_hours" name="sleep_hours" required>
+
+        <label for="previous_scores">Previous exam scores (%):</label>
+        <input type="number" id="previous_scores" name="previous_scores" required>
+
+        <label>Motivation Level:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="motivation" value="low" required> Low</label>
+            <label><input type="radio" name="motivation" value="medium"> Medium</label>
+            <label><input type="radio" name="motivation" value="high"> High</label>
+        </div>
+
+        <label>Internet access:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="internet_access" value="yes" required> Yes</label>
+            <label><input type="radio" name="internet_access" value="no"> No</label>
+        </div>
+
+        <label for="tutoring_sessions">Number of tutoring sessions per month:</label>
+        <input type="number" id="tutoring_sessions" name="tutoring_sessions" required>
+
+        <label>Family income:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="family_income" value="low" required> Low</label>
+            <label><input type="radio" name="family_income" value="medium"> Medium</label>
+            <label><input type="radio" name="family_income" value="high"> High</label>
+        </div>
+
+        <label>Teacher quality:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="teacher_quality" value="low" required> Low</label>
+            <label><input type="radio" name="teacher_quality" value="medium"> Medium</label>
+            <label><input type="radio" name="teacher_quality" value="high"> High</label>
+        </div>
+
+        <label>Peer influence:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="peer_influence" value="low" required> Low</label>
+            <label><input type="radio" name="peer_influence" value="medium"> Medium</label>
+            <label><input type="radio" name="peer_influence" value="high"> High</label>
+        </div>
+
+        <label for="physical_activity">Hours of physical activity per week:</label>
+        <input type="number" id="physical_activity" name="physical_activity" required>
+
+        <label>Learning disabilities:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="learning_disabilities" value="yes" required> Yes</label>
+            <label><input type="radio" name="learning_disabilities" value="no"> No</label>
+        </div>
+
+        <label>Distance from home to institution:</label>
+        <div class="radio-group">
+            <label><input type="radio" name="distance" value="near" required> Near</label>
+            <label><input type="radio" name="distance" value="moderate"> Moderate</label>
+            <label><input type="radio" name="distance" value="far"> Far</label>
+        </div>
+
+        <label for="exam_score">Final exam score (%):</label>
+        <input type="number" id="exam_score" name="exam_score" required>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('studentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(data => {
+                window.location.href = 'summary.html';
+            });
+        });
+    </script>
+</body>
+</html>
